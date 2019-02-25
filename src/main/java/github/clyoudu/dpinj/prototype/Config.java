@@ -11,6 +11,8 @@ import java.io.IOException;
  */
 public interface Config {
 
-    Config cloneConfig() throws IOException, ClassNotFoundException;
+    default Config cloneConfig() throws IOException, ClassNotFoundException {
+        return CopyUtil.deepCopy(this);
+    }
 
 }

@@ -17,11 +17,6 @@ public class MySqlConfig implements Config, Serializable {
 
     private Map<String, LinkedHashMap<String, String>> configItems = new HashMap<>();
 
-    @Override
-    public Config cloneConfig() throws IOException, ClassNotFoundException {
-        return CopyUtil.deepCopy(this);
-    }
-
     public void addConfigItem(String group, String key, String value){
         LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
         linkedHashMap.put(key, value);

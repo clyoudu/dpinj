@@ -73,4 +73,27 @@ public class TestPrototype {
      datadir=/var/lib/mysql
      */
 
+    @Test
+    public void test1() throws IOException, ClassNotFoundException {
+        ConfigManager configManager = ConfigManager.getConfigManager();
+        MySqlConfig mySqlConfig = (MySqlConfig) configManager.getConfig("mysql");
+        mySqlConfig.addConfigItem("mysqld", "port", "3307");
+
+        OracleConfig oracleConfig = (OracleConfig) configManager.getConfig("oracle");
+        oracleConfig.addConfigItem("sessions", "1000");
+
+        System.out.println(mySqlConfig.toString());
+        System.out.println(oracleConfig.toString());
+    }
+    /*
+    log-error=/var/log/mariadb/mariadb.log
+    pid-file=/var/run/mariadb/mariadb.pid
+    [mysqld]
+    port=3307
+    datadir=/var/lib/mysql
+
+    sessions=1000
+    process=300
+    */
+
 }
