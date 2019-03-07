@@ -3,21 +3,22 @@ package github.clyoudu.dpinj.command;
 import java.util.List;
 
 /**
- * Create by IntelliJ IDEA
+ * Created by IntelliJ IDEA
  *
  * @author chenlei
- * @dateTime 2019/3/6 17:51
- * @description TextView
+ * @date 2019/3/7
+ * @time 20:59
+ * @desc ImageView
  */
-public class TextView extends Component {
+public class ImageView extends Component {
 
-    public TextView(List<Gesture> gestures) {
+    public ImageView(List<Gesture> gestures) {
         super(gestures);
     }
 
     @Override
     public void apply() {
-        System.out.println("Command from TextView...");
+        System.out.println("Command from ImageView...");
         for (Gesture gesture : gestures) {
             System.out.println("Invoke gesture " + gesture.getClass().getSimpleName() + "...");
             gesture.action();
