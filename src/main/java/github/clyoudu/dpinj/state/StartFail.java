@@ -10,11 +10,13 @@ package github.clyoudu.dpinj.state;
 public class StartFail extends State {
     @Override
     public void handle(DeployContext context) {
-        if(context.getRetry() < context.getMaxRetry()){
+        boolean start = true;
+        if(!start && context.getRetry() < context.getMaxRetry()){
             context.setRetry(context.getRetry() + 1);
             context.setState(new Start());
         }else{
             System.out.println("Start fail...");
+            System.out.println("Send mail to [" + context.getEmail() + "]...");
         }
     }
 }
